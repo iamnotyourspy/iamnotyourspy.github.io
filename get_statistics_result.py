@@ -55,7 +55,7 @@ def request_api(demo = True):
 
 
 def main():
-    datas = request_api(demo = True)['responses']
+    datas = request_api(demo = False)['responses']
     dict_to_df = {}
     for k, v in question_id_to_name.items():
         dict_to_df[v] = []
