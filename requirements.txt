@@ -1,5 +1,5 @@
 google-auth==2.35.0
 google-auth-oauthlib==1.2.1
 oauthlib==3.2.2
-pandas==  2.2.2
-requests-oauthlib=2.0.0
+pandas==2.2.2
+requests-oauthlib==2.0.0
