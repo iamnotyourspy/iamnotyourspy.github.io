@@ -1,6 +1,9 @@
 name: updateWeb
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '*/10 * * * *'
 
@@ -36,8 +39,8 @@ jobs:
           git config --global user.name 'iamnotyourspy'
           git config --global user.email 'iamnotyourspy@gmail.com'
           git remote set-url origin https://iamnotyourspy:${{ secrets.ACCESS_TOKEN }}@github.com/iamnotyourspy/iamnotyourspy.github.io
-          git checkout -b main
-          git branch
+          # git checkout -b main
+          # git branch
           git add ./index.md
           git add ./statistics_res.md
           git commit -m "github workflows auto update data"
