@@ -30,7 +30,9 @@ jobs:
       - name: Commit report
         env:
             GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            GH_TOKEN: ${{ secrets.GOOGLE_FORM_KEYS }}
         run: |
+          echo ${{ secrets.ACCESS_TOKEN }} > ./google_form_keys.json
           git config --global user.name 'iamnotyourspy'
           git config --global user.email 'iamnotyourspy@gmail.com'
           git remote set-url origin https://iamnotyourspy:${{ secrets.ACCESS_TOKEN }}@github.com/iamnotyourspy/iamnotyourspy.github.io
