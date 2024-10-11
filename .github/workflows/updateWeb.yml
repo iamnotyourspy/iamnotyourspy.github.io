@@ -1,0 +1,43 @@
+name: updateWeb
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  build:
+    # comment
+    name: "Auto Update Statistics Data"
+    # comment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout actions
+        uses: actions/checkout@v1
+        
+      - name: Set up Python 3.12.5
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12.5
+
+      - name: install packages
+        run: "pip install --upgrade pip && pip install -r ./requirements.txt"
+  
+      - name: Update Data
+        run: |
+          sh run_all.sh
+
+      - name: Commit report
+        env:
+            GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          git config --global user.name 'iamnotyourspy'
+          git config --global user.email 'iamnotyourspy@gmail.com'
+          git remote set-url origin https://iamnotyourspy:${{ secrets.ACCESS_TOKEN }}@github.com/iamnotyourspy/iamnotyourspy.github.io
+          git checkout -b main
+          git branch
+          git add ./index.md
+          git add ./statistics_res.md
+          git commit -m "github workflows auto update data"
+          git push origin main
+
