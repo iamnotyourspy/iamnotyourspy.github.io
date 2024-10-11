@@ -42,7 +42,6 @@ jobs:
           # git checkout -b main
           # git branch
           git add ./index.md
-          git add ./statistics_res.md
           git commit -m "github workflows auto update data"
           git push origin main
 
