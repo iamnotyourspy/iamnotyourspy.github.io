@@ -7,14 +7,14 @@
 | Permanent Residency (PNP)                    |      13 |   711.5 |   288 |   394 |   647 |   912 |  1288 |
 | Work Permit                                  |      13 |   313.8 |   190 |   258 |   288 |   336 |   499 |
 | Permanent Residency (Express Entry)          |       7 |  2338.6 |   283 |   315 |   389 |  1079 |  5851 |
-| Permanent Residency (Parents & Grandparents) |       5 |  1010.8 |   647 |   689 |   705 |  1074 |  1593 |
+| Permanent Residency (Parents & Grandparents) |       6 |  1015   |   647 |   693 |   870 |  1064 |  1506 |
 | Permanent Residency (Quebec-CSQ)             |       4 |  3030   |  1909 |  2360 |  2700 |  3369 |  4234 |
 | Atlantic Immigration Program 海洋省移民项目         |       3 |   344.7 |   280 |   316 |   352 |   377 |   392 |
 | RNIP小镇试点移民项目                                 |       2 |   361.5 |   262 |   311 |   361 |   411 |   441 |
 | 联邦自雇移民                                       |       1 | 12912   | 12912 | 12912 | 12912 | 12912 | 12912 |
 
 
-上次更新时间(UTC+8): 2024-10-12 01:59:16
+上次更新时间(UTC+8): 2024-10-12 02:43:09
 
 
 诚邀您填写问卷: [问卷](https://forms.gle/bxUKH95Yq54SVNvp8)
