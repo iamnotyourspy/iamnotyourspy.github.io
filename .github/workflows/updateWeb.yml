@@ -31,7 +31,7 @@ jobs:
             GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
             GOOGLE_TOKEN: ${{ secrets.GOOGLE_FORM_KEYS }}
         run: |
-          echo "${{ secrets.GOOGLE_FORM_KEYS }}" > ./google_form_keys.json
+          echo '${{ secrets.GOOGLE_FORM_KEYS }}' > ./google_form_keys.json
           cat ./google_form_keys.json
           sh run_all.sh
           git config --global user.name 'iamnotyourspy'
