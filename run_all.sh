@@ -1,15 +1,21 @@
 OUTPUT="./index.md"
 python3 get_statistics_result.py
 
+echo "# 问卷数量: ${?}" > ${OUTPUT}
+echo "<br/>" >> ${OUTPUT}
 
-echo "# 安调时长分布(已出安调)\n" > ${OUTPUT}
+
+echo "\n# 安调时长分布(已出安调)\n" >> ${OUTPUT}
 cat ./statistics_leave_security.md >> ${OUTPUT}
 echo "\n\n口径：出安调时间 - 签证递交时间" >> ${OUTPUT}
+echo "<br/>" >> ${OUTPUT}
 
 
 echo "\n\n# 等待时长分布(仍在等待)\n" >> ${OUTPUT}
 cat ./statistics_still_security.md >> ${OUTPUT}
 echo "\n\n口径：最新更新问卷时间 - 签证递交时间" >> ${OUTPUT}
+echo "<br/>" >> ${OUTPUT}
+echo "<br/>" >> ${OUTPUT}
 
 
 time=$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')

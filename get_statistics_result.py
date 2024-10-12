@@ -5,6 +5,7 @@ from google.oauth2 import service_account
 import pandas as pd
 from datetime import datetime
 import json
+import sys
 # import tabulate
 pd.set_option('display.max_colwidth', None)
 
@@ -97,6 +98,7 @@ def main():
             datetime.strptime(str(x['visa_submit_date']), '%Y-%m-%d')
         ).days, axis = 1)
     write_statistics(df_still_security, './statistics_still_security.md')
+    return len(df)
 
 
 def write_statistics(df, output_file):
@@ -116,4 +118,4 @@ def write_statistics(df, output_file):
         convert_file.write(md)
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
