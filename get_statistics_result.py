@@ -28,7 +28,7 @@ question_id_to_name = {
     '08f09ba7': 'leave_security_date',
     '1d5e52a5': 'last_operator_date',
     '01058234': 'enter_security_date',
-    '060d1f5c': 'get_visa_date',
+    '060d1f5c': 'get_visa_date', # 如果你已经下签了，下签的时间？
     '40a54065': 'gender_on_passport',
     '47de1bf3': 'major',
     '6b2dc6e1': 'ircc_last_update_time', # 多久没有收到移民部的消息
@@ -75,11 +75,31 @@ def main():
 
     # rename columns values
     df['type'] = df['type'].map(lambda x: x.split(" / ")[0])
-
-    df['security_days'] = df[['visa_submit_date', 'lastSubmittedTime']].apply(lambda x: \
-        (datetime.strptime(str(x['lastSubmittedTime'])[: 10], '%Y-%m-%d') - \
+    
+    end_security_date_keys = 'leave_security_date'
+    # leave_security_date, get_visa_date
+    df[end_security_date_keys] = df[end_security_date_keys].astype(str)
+    df[end_security_date_keys] = df[end_security_date_keys].replace("None", "1000-01-01")
+    df['security_days'] = df[['visa_submit_date', end_security_date_keys]].\
+        apply(lambda x: (datetime.strptime(str(x[end_security_date_keys])[: 10], '%Y-%m-%d') - \
             datetime.strptime(str(x['visa_submit_date']), '%Y-%m-%d')
-        ).days, axis = 1) 
+        ).days, axis = 1)
+    df['is_leave_security'] = (df['security_days'] > 0)
+    
+    df_still_security = df[~df['is_leave_security']]
+    df_leave_security = df[df['is_leave_security']]
+
+    write_statistics(df_leave_security, './statistics_leave_security.md')
+
+    # re compute security_days
+    df_still_security['security_days'] = df_still_security[['visa_submit_date', 'lastSubmittedTime']].\
+        apply(lambda x: (datetime.strptime(str(x['lastSubmittedTime'])[: 10], '%Y-%m-%d') - \
+            datetime.strptime(str(x['visa_submit_date']), '%Y-%m-%d')
+        ).days, axis = 1)
+    write_statistics(df_still_security, './statistics_still_security.md')
+
+
+def write_statistics(df, output_file):
     statistics = df[['type', 'security_days']].groupby('type').\
             describe(percentiles = [.25, .5, .75, .9]).sort_values(by=('security_days', 'count'), ascending=False)
     statistics.columns = ['count','mean','std','min','25%','50%','75%', '90%','max']
@@ -91,13 +111,9 @@ def main():
     statistics['50%'] = statistics['50%'].astype(int)
     statistics['75%'] = statistics['75%'].astype(int)
     statistics['90%'] = statistics['90%'].astype(int)
-    # statistics = statistics.reset_index()
     md = statistics.to_markdown()
-    print (md)
-    # print (res, type(res))
-
-    # with open('./statistics_res.md', 'w') as convert_file: 
-    #     convert_file.write(md)
+    with open(output_file, 'w') as convert_file: 
+        convert_file.write(md)
 
 if __name__ == "__main__":
     main()
