@@ -2,8 +2,6 @@ OUTPUT="./index.md"
 python3 get_statistics_result.py
 
 echo "# 问卷数量: ${?}" > ${OUTPUT}
-echo "<br/>" >> ${OUTPUT}
-
 
 echo "\n# 安调时长分布(已出安调)\n" >> ${OUTPUT}
 cat ./statistics_leave_security.md >> ${OUTPUT}
