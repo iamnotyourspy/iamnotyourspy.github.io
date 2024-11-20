@@ -1,4 +1,4 @@
-# 问卷数量: 104
+# 问卷数量: 105
 
 # 安调时长分布(已出安调)
 
@@ -21,7 +21,7 @@
 | TRV (Visitor)                                |      16 |   392.2 |   122 |   287 |   383 |   491 |   530 |
 | Permanent Residency (PNP)                    |      13 |   711.5 |   288 |   394 |   647 |   912 |  1288 |
 | Work Permit                                  |      11 |   319.7 |   190 |   252 |   291 |   336 |   540 |
-| Permanent Residency (Express Entry)          |       7 |  2338.6 |   283 |   315 |   389 |  1079 |  5851 |
+| Permanent Residency (Express Entry)          |       8 |  2120.2 |   283 |   327 |   490 |  1045 |  4675 |
 | Permanent Residency (Parents & Grandparents) |       6 |  1015   |   647 |   693 |   870 |  1064 |  1506 |
 | Permanent Residency (Quebec-CSQ)             |       4 |  2429   |   485 |  1553 |  2210 |  3086 |  4121 |
 | Atlantic Immigration Program 海洋省移民项目         |       3 |   344.7 |   280 |   316 |   352 |   377 |   392 |
@@ -33,7 +33,7 @@
 <br/>
 
 
-上次更新时间(UTC+8): 2024-11-21 01:59:45
+上次更新时间(UTC+8): 2024-11-21 02:34:20
 
 
 您的填写将使数据更加准确与可信，诚邀您参与填写问卷: [问卷](https://forms.gle/bxUKH95Yq54SVNvp8)
